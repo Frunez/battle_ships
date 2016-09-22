@@ -56,21 +56,9 @@ describe BattleShip do
     before(:each) do
       battle.place(7, 3)
     end
-    context 'checks to see if all ships have been sunk' do
-      it 'returns false if there are still ships on the grid' do
-        expect(battle.victory!).to eq ""
-      end
-      it 'returns true if all ships have been sunk' do
-        battle.fire(7, 3)
-        expect(battle.victory!).to eq " Well done, sailor, we won! lets grab some rum!"
-      end
-    end
     it 'tells the player when they have won, aka sunk all ships' do
       # battle.grid.each do |line| puts line.to_s + "\n" end
       expect(battle.fire(7, 3)).to include 'Well done, sailor, we won! lets grab some rum!'
-    end
-    it 'tells the player when they have lost, aka no more ships' do
-
     end
   end
 end
